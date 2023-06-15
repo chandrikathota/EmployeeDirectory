@@ -209,7 +209,7 @@ function performsearch(searchelement,filterbyvalue){
     if(filterbyvalue=="Department" && searchingelement!=""){
         let profiles=[]
         for(let i=0;i<employees.length;i++){
-            if(employees[i].department.includes(searchelement.toString())){
+            if(employees[i].department.toUpperCase().includes(searchingelement.toString())){
                 profiles.push(employees[i])
             }
         }
@@ -326,7 +326,7 @@ function displayemployeedetails(profiles){
             profile.className="profile";
             
             let profile_img=document.createElement("img");
-            profile_img.src="emp1.png";
+            profile_img.src="assets/emp1.png";
         
             let emp_details=document.createElement("div");
             emp_details.className="emp-details";
@@ -378,3 +378,42 @@ function displayemployeedetails(profiles){
             
 }
 
+
+function formvalidation(){
+    var firstName=document.employeeform.fstname.value;
+    var lastName =document.employeeform.lstname.value;
+    var email=document.employeeform.email.value;
+    var jobTitle=document.employeeform.jobtitle.value;
+    var location=document.employeeform.location.value;
+    var department=document.employeeform.deptname.value;
+    var skypeId=document.employeeform.skypeid.value;
+
+    if(firstName==""){
+        document.getElementById("fstnamelbl").style.color="red";
+        document.getElementById("fstnamelbl").innerHTML="Please enter FirstName *";
+    }
+    if(lastName==""){
+        document.getElementById("lastnamelbl").style.color="red";
+        document.getElementById("lastnamelbl").innerHTML="Please enter LastName *";
+    }
+    if(email==""){
+        document.getElementById("emaillbl").style.color="red";
+        document.getElementById("emaillbl").innerHTML="Please enter Email *";
+    }
+    if(jobTitle==""){
+        document.getElementById("jobtitlelbl").style.color="red";
+        document.getElementById("jobtitlelbl").innerHTML="Please enter Job Title *";
+    }
+    if(location==""){
+        document.getElementById("offclbl").style.color="red";
+        document.getElementById("offclbl").innerHTML="Please enter Office *";
+    }
+    if(department==""){
+        document.getElementById("deptlbl").style.color="red";
+        document.getElementById("deptlbl").innerHTML="Please enter Department *";
+    }
+    if(skypeId==""){
+        document.getElementById("skypelbl").style.color="red";
+        document.getElementById("skypelbl").innerHTML="Please enter Skype Id *";
+    }
+}

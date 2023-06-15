@@ -88,9 +88,10 @@ p.pone span{
     height: 25px;
 }
 .first-container .allbtn{
-    display: inline;
-    width: 20px;
-    height: 20px;
+    position: inherit;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
 }
 .first-container button{
     background-color: #00B1FC;

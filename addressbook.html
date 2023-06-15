@@ -15,7 +15,7 @@
 <body>
     <div class="body">
         <div class="header">
-            <img class="saketa-name" src="saketa-logo.svg">
+            <img class="saketa-name" src="assets/saketa-logo.svg">
             <div class="p-onleft">
                 <p class="pone"><span>Employee Directory</span>The Ultimate People Directory Experience</p>
             </div>
@@ -55,8 +55,8 @@
                     <div class="buttonContainer" id="buttonContainer">
                         <div class="allbtn">
                             <button><i class="fa fa-user all-btn" id="all-btn"
-                                    style="font-size: 15px; font-family: 'Arial',FontAwesome;"
-                                    ></i></button>
+                                    style="font-size: 15px; margin: auto; font-family: 'Arial',FontAwesome;"></i>
+                            </button>
                         </div>
                         <script>
                            
@@ -118,27 +118,27 @@
         <form class="popup-form" name="employeeform">
             <i class="fa fa-close closeicon" onclick="closepopup()"></i>
             <label id="fstnamelbl">Enter FirstName<span>*</span></label><br>
-            <input type="text" name="fstname" class="nameholder" required /><br>
+            <input type="text" id="fstname" name="fstname" class="nameholder" /><br>
 
             <label id="lastnamelbl">Enter LastName<span>*</span></label><br>
-            <input type="text" name="lstname" class="nameholder" required /><br>
+            <input type="text" id="lstname" name="lstname" class="nameholder" /><br>
 
             <label id="emaillbl">Enter email<span>*</span></label><br>
-            <input type="text" name="email" class="nameholder" required /><br>
+            <input type="text" id="email" name="email" class="nameholder"/><br>
 
             <label id="jobtitlelbl">Job Title<span>*</span></label><br>
-            <input type="text" name="jobtitle" class="nameholder" required /><br>
+            <input type="text" id="jobtitle" name="jobtitle" class="nameholder"  /><br>
 
             <label id="offclbl">Office<span>*</span></label><br>
-            <input type="text" name="location" class="nameholder" required /><br>
+            <input type="text" id="location" name="location" class="nameholder"  /><br>
 
             <label id="deptlbl">Department<span>*</span></label><br>
-            <input type="text" name="deptname" class="nameholder" required /><br>
+            <input type="text" id="deptname" name="deptname" class="nameholder"  /><br>
 
-            <label id="phnlbl">Phone Number<span>*</span></label><br>
-            <input type="text" name="phnnumber" class="nameholder" required /><br>
+            <label id="skypelbl">Skype ID<span>*</span></label><br>
+            <input type="text" id="skypeid" name="skypeid" class="nameholder"  /><br>
 
-            <button id="submit-btn" class="submitbtn" onclick="formvalidation()">Submit</button>
+            <button id="submit-btn" class="submitbtn" type="button" onclick="formvalidation()">Submit</button>
         </form>
     </div>
 
