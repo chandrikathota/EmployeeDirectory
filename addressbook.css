@@ -1,0 +1,280 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.body{
+    position: relative;
+}
+.container{
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+}
+div.header{
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    height: 70px;
+}
+
+.header p span{
+    color: #57C9FD;
+}
+.header > p{
+    font-size: 15px;
+}
+.saketa-name{
+    width: 130px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.header h1,.p-onleft{
+    margin:-90px 0px 0px 50px;
+}
+.p-onleft{
+    font-size: 12px;
+    height: 70px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.p-onright{
+    margin-left: 650px;
+    font-size: 17px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+p.pone span{
+    display:block;
+    font-size: 27px;
+    font-weight: 300;
+}
+.filters{
+    padding: 10px 20px 10px 20px;
+    width: 200px;
+}
+.filters ul{
+    list-style-type: none;
+    font-size: 14px;
+    margin-left: -45px;
+    cursor: pointer;
+}
+.filters button{
+    background:none;
+    border: none;
+    cursor: pointer;
+    display: block;
+}
+.filters p{
+    font-weight: bold;
+    margin: 8px 0px;
+}
+.filters div:nth-last-child(2){
+    margin: 30px 0px;
+}
+.filters{
+    margin-right: 70px;
+    margin-top: -20px;
+}
+#viewmore-btn{
+    margin-left: -5px;
+    font-size: 12px;
+    color:#02aaf2 ;
+    padding: 5px;
+}
+.button-container {
+    display: flex;
+}
+.iconimg{
+    width: 25px;
+    height: 25px;
+}
+.first-container .allbtn{
+    display: inline;
+    width: 20px;
+    height: 20px;
+}
+.first-container button{
+    background-color: #00B1FC;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 37px;
+    height: 36px;
+    margin: 1px;
+}
+.second-container{
+    margin: 20px 0 0 0;
+    padding: 20px 20px 0px 20px;
+    height: auto;
+}
+.form-label{
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+.search{
+    height: 35px;
+    width: 220px;
+    outline: none;
+}
+.clear-btn{
+    width: 80px;
+    height: 38px;
+    background-color: #69BA00;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+#filter-label{
+    margin-left: 40px;
+}
+.dropdown-holder{
+    height: 40px;
+    width: 200px;
+    margin-left: 7px;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.dropdown-holder *{
+    background-color: aliceblue;
+}
+.addemp-btn{
+    display: inline;
+    width: 130px;
+    margin-left: 60px;
+    float: right;
+}
+#add-btn{
+    height: 30px;
+    width: 150px;
+    border: none;
+    background-color: #00B1FC;
+    color: white;
+    cursor: pointer;
+}
+.note{
+    font-size: 13px;
+}
+.note span{
+    font-weight: bold;
+    font-size: 15px;
+}
+.thirdcontainer{
+    margin-top: -6px;
+    height: auto;
+}
+fieldset {
+    border-color: rgb(239, 239, 241);
+    width: 1030px;
+    height: 320px;
+}
+.profile img{
+    width: 70px;
+    height: 60px;
+}
+.profile{
+    background-color: #E9E8E8;
+    display: inline-flex;
+    width: 220px;
+    padding: 9px;
+    margin: 10px 6px;
+    height: 60px;
+}
+.emp-details{
+    font-size: 12px;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    height: 60px;
+    contain: content;
+}
+.jobdept-labels{
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0.3px;
+}
+.emp-job{
+    display: block;
+}
+.empname{
+    font-weight: bold;
+    font-size: 12px;
+}
+.profile-set{
+    display: inline;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+.icons i{
+    font-family: Arial,FontAwesome;
+    color: #969595;
+    font-size: 10px;
+    margin: 2px;
+
+}
+::-webkit-scrollbar{
+    overflow: hidden;
+}
+.addemp-popup{
+    width:100%;
+    height: 100%;
+    background:rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+.popup-form{
+    width: 400px;
+    height: 570px;
+    background: whitesmoke;
+    position: relative;
+    margin: auto;
+    align-items: center;
+    padding: 15px;
+    font-size:14px ;
+    border-radius: 10px;
+    border: 1px solid rgb(72, 70, 70);
+}
+.popup-form label{
+    padding: 10px;
+    margin: 10px 0px;
+}
+.closeicon{
+    position: absolute;
+    float: right;
+    right: -2px;
+    top: -5px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup-form span{
+    color: red;
+}
+.popup-form input{
+    height: 35px;
+    width: 350px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+.submitbtn{
+    height: 35px;
+    width: 170px;
+    margin: auto;
+    text-align: center;
+    margin-left: 120px;
+    margin-top: 5px;
+    border: none;
+    background-color:#00B1FC;
+    color: white;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+}

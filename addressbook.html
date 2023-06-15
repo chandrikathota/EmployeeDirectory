@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="addressbook.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="addressbook.js" defer></script>
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <img class="saketa-name" src="saketa-logo.svg">
+            <div class="p-onleft">
+                <p class="pone"><span>Employee Directory</span>The Ultimate People Directory Experience</p>
+            </div>
+
+            <div class="p-onright">
+                <p class="ptwo"><span>Welcome,</span>Andrew Philips</p>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+
+            <div class="filters">
+                <ul>
+                    <li>
+                        <div class="depart-filters" id="depart-filters">
+                            <p class="dept">Departments</p>
+
+                        </div>
+                        <div class="offc-filters" id="offc-filters">
+                            <p class="offc">Offices</p>
+
+                        </div>
+                        <div class="jobtle-filters" id="jobtle-filters">
+                            <p class="jobtle">Job Titles</p>
+
+                        </div>
+                    <li>
+                        <div class="viewmore">
+                            <button id="viewmore-btn">view more</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <main>
+                <div class="first-container">
+                    <div class="buttonContainer" id="buttonContainer">
+                        <div class="allbtn">
+                            <button><i class="fa fa-user all-btn" id="all-btn"
+                                    style="font-size: 15px; font-family: 'Arial',FontAwesome;"
+                                    ></i></button>
+                        </div>
+                        <script>
+                           
+                           var buttonContainer = document.getElementById('buttonContainer');
+                            for (var i = 65; i <= 90; i++) {
+                                var letter = String.fromCharCode(i);
+                                var button = document.createElement('button');
+                                button.type = "button"
+                                button.innerText = letter;
+                                button.id = letter;
+                                button.classList.add('letter-button');
+                                (function(button) {
+                                    button.onclick = function() {
+                                    handleclickedbutton(button.id);
+                                    };
+                                })(button);
+                                buttonContainer.appendChild(button);
+                                
+                            }
+                            
+                        </script>
+                    </div>
+
+                </div>
+                <div class="second-container">
+                    <form>
+                        <label class="form-label">Search</label>
+                        <input class="search" id="search" type="text" placeholder="&#xf002 Enter any keyword"
+                            style="font-family:Arial, FontAwesome" />
+                        <input class="clear-btn" type="button" value="Clear" onclick="clearsearchbar()" />
+                        <label class="form-label" id="filter-label">Filter by</label>
+                        <select class="dropdown-holder" id="filterby-option">
+                            <option class="options">Select Filter</option>
+                            <option class="options">Preferred Name</option>
+                            <option class="options">Job Title</option>
+                            <option class="options">Office</option>
+                            <option class="options">Department</option>
+                            <option class="options">Skype ID</option>
+                        </select>
+                        <div class="addemp-btn">
+                            <button id="add-btn" type="button" onclick="openpopup()">Add Employee</button>
+                        </div>
+                    </form>
+                    <div class="note">
+                        <p><span>Note:</span>Please use the advanced filter options to refine your results.</p>
+                    </div>
+
+                </div>
+
+                <div class="thirdcontainer">
+                    <fieldset class="profile-set" id="profile-set">
+
+                    </fieldset>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="addemp-popup" id="addemp-popup">
+        <form class="popup-form" name="employeeform">
+            <i class="fa fa-close closeicon" onclick="closepopup()"></i>
+            <label id="fstnamelbl">Enter FirstName<span>*</span></label><br>
+            <input type="text" name="fstname" class="nameholder" required /><br>
+
+            <label id="lastnamelbl">Enter LastName<span>*</span></label><br>
+            <input type="text" name="lstname" class="nameholder" required /><br>
+
+            <label id="emaillbl">Enter email<span>*</span></label><br>
+            <input type="text" name="email" class="nameholder" required /><br>
+
+            <label id="jobtitlelbl">Job Title<span>*</span></label><br>
+            <input type="text" name="jobtitle" class="nameholder" required /><br>
+
+            <label id="offclbl">Office<span>*</span></label><br>
+            <input type="text" name="location" class="nameholder" required /><br>
+
+            <label id="deptlbl">Department<span>*</span></label><br>
+            <input type="text" name="deptname" class="nameholder" required /><br>
+
+            <label id="phnlbl">Phone Number<span>*</span></label><br>
+            <input type="text" name="phnnumber" class="nameholder" required /><br>
+
+            <button id="submit-btn" class="submitbtn" onclick="formvalidation()">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
