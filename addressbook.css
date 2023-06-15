@@ -245,6 +245,7 @@ fieldset {
     margin: 10px 0px;
 }
 .closeicon{
+    width: 11px;
     position: absolute;
     float: right;
     right: -2px;
@@ -253,6 +254,7 @@ fieldset {
     border: 1px solid gray;
     border-radius: 10px;
     cursor: pointer;
+    padding: 2px;
 }
 .popup-form span{
     color: red;
