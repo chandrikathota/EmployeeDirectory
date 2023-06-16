@@ -60,22 +60,7 @@
                         </div>
                         <script>
                            
-                           var buttonContainer = document.getElementById('buttonContainer');
-                            for (var i = 65; i <= 90; i++) {
-                                var letter = String.fromCharCode(i);
-                                var button = document.createElement('button');
-                                button.type = "button"
-                                button.innerText = letter;
-                                button.id = letter;
-                                button.classList.add('letter-button');
-                                (function(button) {
-                                    button.onclick = function() {
-                                    handleclickedbutton(button.id);
-                                    };
-                                })(button);
-                                buttonContainer.appendChild(button);
-                                
-                            }
+                           
                             
                         </script>
                     </div>
@@ -86,7 +71,7 @@
                         <label class="form-label">Search</label>
                         <input class="search" id="search" type="text" placeholder="&#xf002 Enter any keyword"
                             style="font-family:Arial, FontAwesome" />
-                        <input class="clear-btn" type="button" value="Clear" onclick="clearsearchbar()" />
+                        <input class="clear-btn" type="button" value="Clear" onclick="clearSearchBar()" />
                         <label class="form-label" id="filter-label">Filter by</label>
                         <select class="dropdown-holder" id="filterby-option">
                             <option class="options">Select Filter</option>
@@ -97,7 +82,7 @@
                             <option class="options">Skype ID</option>
                         </select>
                         <div class="addemp-btn">
-                            <button id="add-btn" type="button" onclick="openpopup()">Add Employee</button>
+                            <button id="add-btn" type="button" onclick="openPopup()">Add Employee</button>
                         </div>
                     </form>
                     <div class="note">
@@ -116,7 +101,7 @@
     </div>
     <div class="addemp-popup" id="addemp-popup">
         <form class="popup-form" name="employeeform">
-            <i class="fa fa-close closeicon" onclick="closepopup()"></i>
+            <i class="fa fa-close closeicon" onclick="closePopup()"></i>
             <label id="fstnamelbl">Enter FirstName<span>*</span></label><br>
             <input type="text" id="fstname" name="fstname" class="nameholder" /><br>
 
@@ -138,7 +123,7 @@
             <label id="skypelbl">Skype ID<span>*</span></label><br>
             <input type="text" id="skypeid" name="skypeid" class="nameholder"  /><br>
 
-            <button id="submit-btn" class="submitbtn" type="button" onclick="formvalidation()">Submit</button>
+            <button id="submit-btn" class="submitbtn" type="button" onclick="formValidation()">Submit</button>
         </form>
     </div>
 
