@@ -25,8 +25,7 @@
             </div>
         </div>
         <hr />
-        <div class="container">
-
+        <div class="main-section">
             <div class="filters">
                 <ul>
                     <li>
@@ -51,22 +50,17 @@
             </div>
 
             <main>
-                <div class="first-container">
+                <div class="buttons-container">
                     <div class="buttonContainer" id="buttonContainer">
                         <div class="allbtn">
                             <button><i class="fa fa-user all-btn" id="all-btn"
-                                    style="font-size: 15px; margin: auto; font-family: 'Arial',FontAwesome;"></i>
+                                    style="font-size: 15px; font-family: 'Arial',FontAwesome;"></i>
                             </button>
                         </div>
-                        <script>
-                           
-                           
-                            
-                        </script>
                     </div>
 
                 </div>
-                <div class="second-container">
+                <div class="search-container">
                     <form>
                         <label class="form-label">Search</label>
                         <input class="search" id="search" type="text" placeholder="&#xf002 Enter any keyword"
@@ -91,7 +85,7 @@
 
                 </div>
 
-                <div class="thirdcontainer">
+                <div class="profileDisplay">
                     <fieldset class="profile-set" id="profile-set">
 
                     </fieldset>
@@ -100,7 +94,7 @@
         </div>
     </div>
     <div class="addemp-popup" id="addemp-popup">
-        <form class="popup-form" name="employeeform">
+        <form class="popup-form" name="employeeform" id="employeeform">
             <i class="fa fa-close closeicon" onclick="closePopup()"></i>
             <label id="fstnamelbl">Enter FirstName<span>*</span></label><br>
             <input type="text" id="fstname" name="fstname" class="nameholder" /><br>
@@ -123,7 +117,9 @@
             <label id="skypelbl">Skype ID<span>*</span></label><br>
             <input type="text" id="skypeid" name="skypeid" class="nameholder"  /><br>
 
-            <button id="submit-btn" class="submitbtn" type="button" onclick="formValidation()">Submit</button>
+            <p class="errormsg" id="errormsg"></p>
+            <button id="submit-btn" class="submitbtn" type="button" onclick="addNewEmployeeDetails()">Submit</button>
+            
         </form>
     </div>
 

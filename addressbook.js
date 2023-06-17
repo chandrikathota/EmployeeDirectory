@@ -1,4 +1,3 @@
-
 var buttonContainer = document.getElementById('buttonContainer');
 for (var i = 65; i <= 90; i++) {
     var letter = String.fromCharCode(i);
@@ -13,9 +12,7 @@ for (var i = 65; i <= 90; i++) {
         };
     })(button);
     buttonContainer.appendChild(button);
-    
 }
-
 function openPopup(){
     document.getElementById("addemp-popup").style.display="flex";
 }
@@ -40,8 +37,8 @@ let employees=[
     },
     {
         firstName:"Lea",
-        lastName:"Dileali",
-        preferedName:"Lea Dileali",
+        lastName:"Dilallo",
+        preferedName:"Lea Dilallo",
         email:"lea.d@gmail.com",
         location:"Seattle",
         job:".Net developer",
@@ -147,12 +144,19 @@ filterByElement.addEventListener("change",function(){
 })
 
 
-function retrieveSearchElement(filterbyvalue){
-    searchBar.addEventListener("input",function(event){
-        event.preventDefault()
-        searchElement=event.target.value;
-        performSearch(searchElement,filterByValue)
+function retrieveSearchElement(filterByValue){
+    searchBar.addEventListener("keypress",function(event){
+        
+        if(event.key==="Enter"){
+            event.preventDefault();
+            searchElement=event.target.value;
+            performSearch(searchElement,filterByValue)
+        }
+        
     })
+    // searchBar.addEventListener("keypress",function(ev){
+    //     if()
+    // })
 }
 
 
@@ -218,27 +222,31 @@ function performSearch(searchElement,filterByValue){
 profiles=[]
 
 departmentFilters=[]
+locationFilters=[]
+jobTitleFilters=[]
+
+
+
 for (let i=0;i<employees.length;i++){
     let deptli=document.createElement('li');
     deptli.className="dept-filter";
     deptli.id=employees[i].department;
+            
     
-
     if(!departmentFilters.includes(employees[i].department)){
         departmentFilters.push(employees[i].department);
         deptli.innerText= employees[i].department;
         deptli.addEventListener("click", handleFilterClick);
         document.getElementById("depart-filters").appendChild(deptli);
-    }  
+    } 
 }
-
-locationFilters=[]
+    
 for(let i=0;i<employees.length;i++){
     let officeli=document.createElement('li');
     officeli.className="off-filters";
     officeli.id=employees[i].location;
-    
-    
+            
+            
     if(!locationFilters.includes(employees[i].location)){
         locationFilters.push(employees[i].location);
         officeli.innerText=employees[i].location;
@@ -246,22 +254,76 @@ for(let i=0;i<employees.length;i++){
         document.getElementById("offc-filters").appendChild(officeli);
     }
 }
-
-jobTitleFilters=[]
+    
+var maxJobFilters=5
+var flag=false
 for(let i=0;i<employees.length;i++){
+
     let jobli=document.createElement('li');
     jobli.className="jobtle-filters";
     jobli.id=employees[i].job;
+            
     
-
     if(!jobTitleFilters.includes(employees[i].job)){
         jobTitleFilters.push(employees[i].job);
-        jobli.innerText=employees[i].job;
-        jobli.addEventListener("click", handleFilterClick);
-        document.getElementById("jobtle-filters").appendChild(jobli);
+        if (flag || jobTitleFilters.length <= maxJobFilters) {
+            jobli.innerText = employees[i].job;
+            jobli.addEventListener("click", handleFilterClick);
+            document.getElementById("jobtle-filters").appendChild(jobli);
+        }
     }
-
+    
 }
+// function displayAllJobFilters(){
+//     let jobli=document.createElement('li');
+//     jobli.className="jobtle-filters";
+//     jobli.id=employees[i].job;
+            
+    
+//     if(!jobTitleFilters.includes(employees[i].job)){
+//         jobTitleFilters.push(employees[i].job);  
+//         jobli.addEventListener("click", handleFilterClick);
+//         document.getElementById("jobtle-filters").appendChild(jobli); 
+//     }
+// }
+
+//updating new filters
+
+function displayNewFilters(filterCategory, filterValue) {
+    var filterListElement;
+    var filterArray;
+  
+    switch (filterCategory) {
+      case "department":
+        filterListElement = document.getElementById("depart-filters");
+        filterArray = departmentFilters;
+        console.log(filterListElement,filterArray)
+        break;
+      case "location":
+        filterListElement = document.getElementById("offc-filters");
+        filterArray = locationFilters;
+        break;
+      case "job":
+        filterListElement = document.getElementById("jobtle-filters");
+        filterArray = jobTitleFilters;
+        break;
+      default:
+        return; // Exit the function if an invalid filter category is provided
+    }
+  
+    if (!filterArray.includes(filterValue)) {
+      filterArray.push(filterValue);
+      var filterListItem = document.createElement("li");
+      filterListItem.className = filterCategory + "-filter";
+      filterListItem.id = filterValue;
+      filterListItem.innerText = filterValue;
+      filterListItem.addEventListener("click", handleFilterClick);
+      filterListElement.appendChild(filterListItem);
+    }
+  }
+  
+
+
 
 function handleFilterClick(event) {
     const filterId = event.target.id;
@@ -302,7 +364,9 @@ function alphaButtonClicked(buttonid){
     displayEmployeeDetails(profiles)
 }
 
-
+window.addEventListener("load",function(){
+    displayEmployeeDetails(employees)
+})
 function displayEmployeeDetails(profiles){
 
     document.getElementById("profile-set").innerHTML = '';
@@ -363,43 +427,41 @@ function displayEmployeeDetails(profiles){
 }
 
 
-function formValidation(){
-    var firstName=document.employeeform.fstname.value;
-    var lastName =document.employeeform.lstname.value;
-    var email=document.employeeform.email.value;
-    var jobTitle=document.employeeform.jobtitle.value;
-    var location=document.employeeform.location.value;
-    var department=document.employeeform.deptname.value;
-    var skypeId=document.employeeform.skypeid.value;
+function addNewEmployeeDetails(){
+    var newEmployeeFirstName=document.employeeform.fstname.value;
+    var newEmployeeLastName =document.employeeform.lstname.value;
+    var newEmployeeEmail=document.employeeform.email.value;
+    var newEmployeeJobTitle=document.employeeform.jobtitle.value;
+    var newEmployeeLocation=document.employeeform.location.value;
+    var newEmployeeDepartment=document.employeeform.deptname.value;
+    var newEmployeeSkypeId=document.employeeform.skypeid.value;
+    var newEmployeePreferedName=newEmployeeFirstName+" "+newEmployeeLastName
 
-    // if(firstName==""){
-    //     document.getElementById("fstnamelbl").style.color="red";
-    //     document.getElementById("fstnamelbl").innerHTML="Please enter FirstName *";
-    // }
-    // if(lastName==""){
-    //     document.getElementById("lastnamelbl").style.color="red";
-    //     document.getElementById("lastnamelbl").innerHTML="Please enter LastName *";
-    // }
-    // if(email==""){
-    //     document.getElementById("emaillbl").style.color="red";
-    //     document.getElementById("emaillbl").innerHTML="Please enter Email *";
-    // }
-    // if(jobTitle==""){
-    //     document.getElementById("jobtitlelbl").style.color="red";
-    //     document.getElementById("jobtitlelbl").innerHTML="Please enter Job Title *";
-    // }
-    // if(location==""){
-    //     document.getElementById("offclbl").style.color="red";
-    //     document.getElementById("offclbl").innerHTML="Please enter Office *";
-    // }
-    // if(department==""){
-    //     document.getElementById("deptlbl").style.color="red";
-    //     document.getElementById("deptlbl").innerHTML="Please enter Department *";
-    // }
-    // if(skypeId==""){
-    //     document.getElementById("skypelbl").style.color="red";
-    //     document.getElementById("skypelbl").innerHTML="Please enter Skype Id *";
-    // }
-
-
+    var newEmployeeDetails={
+        firstName:newEmployeeFirstName,
+        lastName:newEmployeeLastName,
+        preferedName:newEmployeePreferedName,
+        email:newEmployeeEmail,
+        location:newEmployeeLocation,
+        job:newEmployeeJobTitle,
+        department:newEmployeeDepartment,
+        skypeid:newEmployeeSkypeId
+    }
+    var errormsg=document.getElementById("errormsg")
+    if(newEmployeeFirstName!="" || newEmployeeLastName!="" || newEmployeeEmail!="" || newEmployeeJobTitle!="" || newEmployeeLocation!="" || newEmployeeDepartment!="" || newEmployeeSkypeId!="" ){
+        employees.push(newEmployeeDetails);
+        closePopup();
+        document.getElementById("employeeform").reset();
+        errormsg.innerHTML=""
+        displayNewFilters("department",newEmployeeDetails.department)
+        displayNewFilters("job",newEmployeeDetails.job)
+        displayNewFilters("location",newEmployeeDetails.location)
+        
+    }
+    else{
+        errormsg.innerHTML="Please enter all required details"
+        errormsg.style.color="Red"
+        errormsg.style.margin="0px"
+    }
+    
 }

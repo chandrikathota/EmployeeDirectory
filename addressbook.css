@@ -1,21 +1,21 @@
 body{
     font-family: 'Open Sans', sans-serif;
+    padding: 1px 20px;
+    margin-right: 24px;
 }
 .body{
     position: relative;
 }
-.container{
-    display: flex;
-    width: 100%;
-    margin-top: 10px;
-}
+
 div.header{
     display: flex;
-    width: 100%;
+    width: 99%;
     align-items: baseline;
     height: 70px;
 }
-
+hr{
+    width: 98%;
+}
 .header p span{
     color: #57C9FD;
 }
@@ -37,7 +37,7 @@ div.header{
     margin-bottom: auto;
 }
 .p-onright{
-    margin-left: 650px;
+    margin-left: 630px;
     font-size: 17px;
     margin-top: auto;
     margin-bottom: auto;
@@ -46,6 +46,11 @@ p.pone span{
     display:block;
     font-size: 27px;
     font-weight: 300;
+}
+.main-section{
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
 }
 .filters{
     padding: 10px 20px 10px 20px;
@@ -71,7 +76,7 @@ p.pone span{
     margin: 30px 0px;
 }
 .filters{
-    margin-right: 70px;
+    margin-right: 10px;
     margin-top: -20px;
 }
 #viewmore-btn{
@@ -80,29 +85,35 @@ p.pone span{
     color:#02aaf2 ;
     padding: 5px;
 }
+.main-section main{
+    width: fit-content;
+    width: 1060px;
+}
 .button-container {
     display: flex;
+    width: 100%;
 }
 .iconimg{
     width: 25px;
     height: 25px;
 }
-.first-container .allbtn{
+.buttons-container .allbtn{
     position: inherit;
     display: inline-block;
-    width: 35px;
+    width: 38px;
     height: 35px;
+    margin-right: -2px;
 }
-.first-container button{
+.buttonContainer button{
     background-color: #00B1FC;
     border: none;
     cursor: pointer;
     color: white;
     width: 37px;
     height: 36px;
-    margin: 1px;
+    margin: 1.1px;
 }
-.second-container{
+.search-container{
     margin: 20px 0 0 0;
     padding: 20px 20px 0px 20px;
     height: auto;
@@ -149,7 +160,7 @@ p.pone span{
     float: right;
 }
 #add-btn{
-    height: 30px;
+    height: 34px;
     width: 150px;
     border: none;
     background-color: #00B1FC;
@@ -163,45 +174,50 @@ p.pone span{
     font-weight: bold;
     font-size: 15px;
 }
-.thirdcontainer{
+.profileDisplay{
     margin-top: -6px;
     height: auto;
 }
 fieldset {
     border-color: rgb(239, 239, 241);
-    width: 1030px;
+    width: 1032px;
     height: 320px;
 }
 .profile img{
     width: 70px;
-    height: 60px;
+    height: 64px;
 }
 .profile{
     background-color: #E9E8E8;
     display: inline-flex;
-    width: 220px;
-    padding: 9px;
-    margin: 10px 6px;
-    height: 60px;
+    width: 217px;
+    padding: 6px 9px;
+    margin: 10px 8.9px;
+    height: 64px;
 }
 .emp-details{
     font-size: 12px;
     padding: 0px 5px;
     margin: 0px 5px;
-    height: 60px;
+    height: 64 px;
     contain: content;
 }
 .jobdept-labels{
     font-size: 10px;
     line-height: 13px;
     letter-spacing: 0.3px;
+    margin-bottom: 1px;
 }
 .emp-job{
     display: block;
 }
-.empname{
+.emp-job, .emp-dept{
+    margin-top: 3px;
+}
+.emp-name{
     font-weight: bold;
     font-size: 12px;
+    margin: auto;
 }
 .profile-set{
     display: inline;
@@ -231,7 +247,7 @@ fieldset {
 }
 .popup-form{
     width: 400px;
-    height: 570px;
+    height: 600px;
     background: whitesmoke;
     position: relative;
     margin: auto;
