@@ -274,18 +274,23 @@ for(let i=0;i<employees.length;i++){
     }
     
 }
-// function displayAllJobFilters(){
-//     let jobli=document.createElement('li');
-//     jobli.className="jobtle-filters";
-//     jobli.id=employees[i].job;
-            
-    
-//     if(!jobTitleFilters.includes(employees[i].job)){
-//         jobTitleFilters.push(employees[i].job);  
-//         jobli.addEventListener("click", handleFilterClick);
-//         document.getElementById("jobtle-filters").appendChild(jobli); 
-//     }
-// }
+
+let viewMoreBtn=document.getElementById("viewmore-btn")
+viewMoreBtn.addEventListener("click",function(){
+    var jobFiltersList = document.getElementById("jobtle-filters");
+    jobFiltersList.innerHTML = ""; // Clear the current filters list
+
+    for (let i = 0; i < jobTitleFilters.length; i++) {
+        let jobli = document.createElement('li');
+        jobli.className = "jobtle-filters";
+        jobli.id = jobTitleFilters[i];
+        jobli.innerText = jobTitleFilters[i];
+        jobli.addEventListener("click", handleFilterClick);
+        jobFiltersList.appendChild(jobli);
+    }
+})
+
+
 
 //updating new filters
 
