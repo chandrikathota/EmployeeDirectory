@@ -22,6 +22,7 @@
 
             <div class="p-onright">
                 <p class="ptwo"><span>Welcome,</span>Andrew Philips</p>
+                <img class="andrewImg" src="assets/andrew.jpeg"/>
             </div>
         </div>
         <hr />
@@ -43,7 +44,7 @@
                         </div>
                     <li>
                         <div class="viewmore">
-                            <button id="viewmore-btn">view more</button>
+                            <button id="viewmore-btn" onclick="handleViewMoreButton()">view more</button>
                         </div>
                     </li>
                 </ul>
@@ -68,7 +69,6 @@
                         <input class="clear-btn" type="button" value="Clear" onclick="clearSearchBar()" />
                         <label class="form-label" id="filter-label">Filter by</label>
                         <select class="dropdown-holder" id="filterby-option">
-                            <option class="options">Select Filter</option>
                             <option class="options">Preferred Name</option>
                             <option class="options">Job Title</option>
                             <option class="options">Office</option>

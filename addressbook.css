@@ -8,13 +8,15 @@ body{
 }
 
 div.header{
-    display: flex;
-    width: 99%;
+    display: inline-flex;
+    width: 1305px;
     align-items: baseline;
     height: 70px;
+    justify-content: space-between;
 }
 hr{
-    width: 98%;
+    width: 1305px;
+    margin: 3px 0px;
 }
 .header p span{
     color: #57C9FD;
@@ -35,17 +37,26 @@ hr{
     height: 70px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: -550px;
 }
 .p-onright{
-    margin-left: 630px;
     font-size: 17px;
     margin-top: auto;
     margin-bottom: auto;
+    display: inline-flex;
 }
 p.pone span{
     display:block;
     font-size: 27px;
     font-weight: 300;
+}
+.ptwo{
+    display: inline-flex;
+    margin-right: 5px;
+}
+.andrewImg{
+    width: 60px;
+    height: 60px;
 }
 .main-section{
     display: flex;
@@ -78,6 +89,11 @@ p.pone span{
 .filters{
     margin-right: 10px;
     margin-top: -20px;
+}
+.filtersbackgrndclr{
+    width: 200px;
+    border-radius: 10px;
+    background-color: #57C9FD;
 }
 #viewmore-btn{
     margin-left: -5px;
@@ -180,7 +196,7 @@ p.pone span{
 }
 fieldset {
     border-color: rgb(239, 239, 241);
-    width: 1032px;
+    width: 1028px;
     height: 320px;
 }
 .profile img{

@@ -17,6 +17,7 @@ function openPopup(){
     document.getElementById("addemp-popup").style.display="flex";
 }
 function closePopup(){
+    document.getElementById("errormsg").innerHTML=""
     document.getElementById("addemp-popup").style.display="none";
 }
 function clearSearchBar(){
@@ -136,7 +137,8 @@ let searchBar=document.getElementById("search");
 var searchElement=" "
 
 let filterByElement=document.getElementById("filterby-option")
-
+var filterByValue=filterByElement.value;
+retrieveSearchElement(filterByValue)
 
 filterByElement.addEventListener("change",function(){
     var filterByValue=filterByElement.value;
@@ -146,17 +148,19 @@ filterByElement.addEventListener("change",function(){
 
 function retrieveSearchElement(filterByValue){
     searchBar.addEventListener("keypress",function(event){
-        
-        if(event.key==="Enter"){
+        if (event.key === "Enter" || event.key === "Backspace") {
             event.preventDefault();
-            searchElement=event.target.value;
-            performSearch(searchElement,filterByValue)
+            let searchElement = event.target.value;
+            let filterByValue = filterByElement.value;
+    
+            if (searchElement === "") {
+                displayEmployeeDetails(employees);
+            } else {
+                performSearch(searchElement, filterByValue);
+            }
         }
         
     })
-    // searchBar.addEventListener("keypress",function(ev){
-    //     if()
-    // })
 }
 
 
@@ -223,13 +227,12 @@ profiles=[]
 
 departmentFilters=[]
 locationFilters=[]
-jobTitleFilters=[]
 
 
 
 for (let i=0;i<employees.length;i++){
     let deptli=document.createElement('li');
-    deptli.className="dept-filter";
+    deptli.className="depart-filters";
     deptli.id=employees[i].department;
             
     
@@ -243,7 +246,7 @@ for (let i=0;i<employees.length;i++){
     
 for(let i=0;i<employees.length;i++){
     let officeli=document.createElement('li');
-    officeli.className="off-filters";
+    officeli.className="offc-filters";
     officeli.id=employees[i].location;
             
             
@@ -255,85 +258,83 @@ for(let i=0;i<employees.length;i++){
     }
 }
     
-var maxJobFilters=5
-var flag=false
-for(let i=0;i<employees.length;i++){
+function displayLessJobFilters(){
+    jobTitleFilters=[]
+    var jobFiltersList = document.getElementById("jobtle-filters");
+    jobFiltersList.innerHTML = "";
+    var maxJobFilters=6
+    var flag=false
+    for(let i=0;i<employees.length;i++){
 
-    let jobli=document.createElement('li');
-    jobli.className="jobtle-filters";
-    jobli.id=employees[i].job;
-            
-    
-    if(!jobTitleFilters.includes(employees[i].job)){
-        jobTitleFilters.push(employees[i].job);
-        if (flag || jobTitleFilters.length <= maxJobFilters) {
-            jobli.innerText = employees[i].job;
-            jobli.addEventListener("click", handleFilterClick);
-            document.getElementById("jobtle-filters").appendChild(jobli);
+        let jobli=document.createElement('li');
+        jobli.className="jobtle-filters";
+        jobli.id=employees[i].job;
+                
+        
+        if(!jobTitleFilters.includes(employees[i].job)){
+            jobTitleFilters.push(employees[i].job);
+            if (flag || jobTitleFilters.length <= maxJobFilters) {
+                jobli.innerText = employees[i].job;
+                jobli.addEventListener("click", handleFilterClick);
+                document.getElementById("jobtle-filters").appendChild(jobli);
+            }
         }
+        
+    }
+}
+displayLessJobFilters()
+isJobFiltersExpanded=false
+function handleViewMoreButton(){
+    isJobFiltersExpanded=true
+    let viewMoreBtn=document.getElementById("viewmore-btn")
+    if(viewMoreBtn.innerHTML==="view more"){
+        viewMoreBtn.innerText="view less"
+        var jobFiltersList = document.getElementById("jobtle-filters");
+        jobFiltersList.innerHTML = ""; 
+        for (let i = 0; i < jobTitleFilters.length; i++) {
+            let jobli = document.createElement('li');
+            jobli.className = "jobtle-filters";
+            jobli.id = jobTitleFilters[i];
+            jobli.innerText = jobTitleFilters[i];
+            jobli.addEventListener("click", handleFilterClick);
+            jobFiltersList.appendChild(jobli);
+        }
+    }
+    else{
+        viewMoreBtn.innerHTML="view more"
+        displayLessJobFilters()
     }
     
 }
-
-let viewMoreBtn=document.getElementById("viewmore-btn")
-viewMoreBtn.addEventListener("click",function(){
-    var jobFiltersList = document.getElementById("jobtle-filters");
-    jobFiltersList.innerHTML = ""; // Clear the current filters list
-
-    for (let i = 0; i < jobTitleFilters.length; i++) {
-        let jobli = document.createElement('li');
-        jobli.className = "jobtle-filters";
-        jobli.id = jobTitleFilters[i];
-        jobli.innerText = jobTitleFilters[i];
-        jobli.addEventListener("click", handleFilterClick);
-        jobFiltersList.appendChild(jobli);
-    }
-})
-
-
-
-//updating new filters
-
-function displayNewFilters(filterCategory, filterValue) {
-    var filterListElement;
-    var filterArray;
-  
-    switch (filterCategory) {
-      case "department":
-        filterListElement = document.getElementById("depart-filters");
-        filterArray = departmentFilters;
-        console.log(filterListElement,filterArray)
-        break;
-      case "location":
-        filterListElement = document.getElementById("offc-filters");
-        filterArray = locationFilters;
-        break;
-      case "job":
-        filterListElement = document.getElementById("jobtle-filters");
-        filterArray = jobTitleFilters;
-        break;
-      default:
-        return; // Exit the function if an invalid filter category is provided
-    }
-  
-    if (!filterArray.includes(filterValue)) {
-      filterArray.push(filterValue);
-      var filterListItem = document.createElement("li");
-      filterListItem.className = filterCategory + "-filter";
-      filterListItem.id = filterValue;
-      filterListItem.innerText = filterValue;
-      filterListItem.addEventListener("click", handleFilterClick);
-      filterListElement.appendChild(filterListItem);
-    }
-  }
   
 
 
 
 function handleFilterClick(event) {
-    const filterId = event.target.id;
-    getfilteredprofiles(filterId)
+    let filterId = event.target.id;
+    let deptFilterElements=document.getElementsByClassName("depart-filters")
+    let jobFilterElements = document.getElementsByClassName("jobtle-filters");
+    let offcFilterElements=document.getElementsByClassName("offc-filters")
+    
+
+    for (let i = 0; i < deptFilterElements.length; i++) {
+        deptFilterElements[i].style.backgroundColor = "";
+    }
+    for (let i = 0; i < jobFilterElements.length; i++) {
+        jobFilterElements[i].style.backgroundColor = "";
+    }
+    for (let i = 0; i < offcFilterElements.length; i++) {
+        offcFilterElements[i].style.backgroundColor = "";
+    }
+
+    let filterElement = document.getElementById(filterId);
+    filterElement.style.backgroundColor = "#cdeaf6";
+    filterElement.style.width="160px"
+    filterElement.style.borderRadius="5px"
+    getfilteredprofiles(filterId);
 }
+
+
 
 function getfilteredprofiles(filterId){
     let profiles=[]
@@ -349,7 +350,34 @@ function getfilteredprofiles(filterId){
     displayEmployeeDetails(profiles)
 }
 
-//all-employees display
+//to remove highligting of filters
+document.addEventListener("click", function(event) {
+    let target = event.target;
+    let isFilterElement = target.classList.contains("jobtle-filters") || target.classList.contains("offc-filters") || target.classList.contains("depart-filters");
+
+    if (!isFilterElement) {
+        let deptFilterElements=document.getElementsByClassName("depart-filters")
+        let jobFilterElements = document.getElementsByClassName("jobtle-filters");
+        let offcFilterElements = document.getElementsByClassName("offc-filters");
+
+        
+        for (let i = 0; i < deptFilterElements.length; i++) {
+            deptFilterElements[i].style.backgroundColor = "";
+        }
+
+        for (let i = 0; i < jobFilterElements.length; i++) {
+            jobFilterElements[i].style.backgroundColor = "";
+        }
+
+        
+        for (let i = 0; i < offcFilterElements.length; i++) {
+            offcFilterElements[i].style.backgroundColor = "";
+        }
+    }
+});
+
+
+//all-button
 
 document.getElementById("all-btn").addEventListener("click",function(){
     displayEmployeeDetails(employees);
@@ -369,9 +397,13 @@ function alphaButtonClicked(buttonid){
     displayEmployeeDetails(profiles)
 }
 
+//to display all employees on intital load
 window.addEventListener("load",function(){
     displayEmployeeDetails(employees)
 })
+
+
+//to display required profiles
 function displayEmployeeDetails(profiles){
 
     document.getElementById("profile-set").innerHTML = '';
@@ -432,6 +464,7 @@ function displayEmployeeDetails(profiles){
 }
 
 
+//to add new employee
 function addNewEmployeeDetails(){
     var newEmployeeFirstName=document.employeeform.fstname.value;
     var newEmployeeLastName =document.employeeform.lstname.value;
@@ -461,6 +494,7 @@ function addNewEmployeeDetails(){
         displayNewFilters("department",newEmployeeDetails.department)
         displayNewFilters("job",newEmployeeDetails.job)
         displayNewFilters("location",newEmployeeDetails.location)
+        displayEmployeeDetails(employees)
         
     }
     else{
@@ -470,3 +504,39 @@ function addNewEmployeeDetails(){
     }
     
 }
+
+
+//updating new filters
+
+function displayNewFilters(filterCategory, filterValue) {
+    var filterListElement;
+    var filterArray;
+  
+    switch (filterCategory) {
+      case "department":
+        filterListElement = document.getElementById("depart-filters");
+        filterArray = departmentFilters;
+        console.log(filterListElement,filterArray)
+        break;
+      case "location":
+        filterListElement = document.getElementById("offc-filters");
+        filterArray = locationFilters;
+        break;
+      case "job":
+        filterListElement = document.getElementById("jobtle-filters");
+        filterArray = jobTitleFilters;
+        break;
+      default:
+        return; // Exit the function if an invalid filter category is provided
+    }
+    isJobFiltersExpanded=false
+    if (!filterArray.includes(filterValue) && isJobFiltersExpanded) {
+      filterArray.push(filterValue);
+      var filterListItem = document.createElement("li");
+      filterListItem.className = filterCategory + "-filter";
+      filterListItem.id = filterValue;
+      filterListItem.innerText = filterValue;
+      filterListItem.addEventListener("click", handleFilterClick);
+      filterListElement.appendChild(filterListItem);
+    }
+  }
