@@ -329,7 +329,7 @@ function handleFilterClick(event) {
 
     let filterElement = document.getElementById(filterId);
     filterElement.style.backgroundColor = "#cdeaf6";
-    filterElement.style.width="160px"
+    filterElement.style.width="100%"
     filterElement.style.borderRadius="5px"
     getfilteredprofiles(filterId);
 }
@@ -529,8 +529,8 @@ function displayNewFilters(filterCategory, filterValue) {
       default:
         return; // Exit the function if an invalid filter category is provided
     }
-    isJobFiltersExpanded=false
-    if (!filterArray.includes(filterValue) && isJobFiltersExpanded) {
+    
+    if (!filterArray.includes(filterValue) && filterListElement!="jobtle-filters") {
       filterArray.push(filterValue);
       var filterListItem = document.createElement("li");
       filterListItem.className = filterCategory + "-filter";
@@ -538,5 +538,8 @@ function displayNewFilters(filterCategory, filterValue) {
       filterListItem.innerText = filterValue;
       filterListItem.addEventListener("click", handleFilterClick);
       filterListElement.appendChild(filterListItem);
+    }
+    else{
+        displayLessJobFilters()
     }
   }
