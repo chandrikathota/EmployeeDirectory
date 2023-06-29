@@ -1,71 +1,67 @@
 body{
     font-family: 'Open Sans', sans-serif;
-    padding: 1px 20px;
-    margin-right: 24px;
+    position: fixed;
 }
-.body{
-    position: relative;
+button:focus-visible{
+    outline: none;
+    border: none;
 }
-
-div.header{
-    display: inline-flex;
-    width: 1305px;
-    align-items: baseline;
+#header{
+    width: 100%;
     height: 70px;
-    justify-content: space-between;
 }
-hr{
-    width: 1305px;
-    margin: 3px 0px;
-}
-.header p span{
-    color: #57C9FD;
-}
-.header > p{
+#header > p{
     font-size: 15px;
 }
 .saketa-name{
     width: 130px;
-    margin-top: auto;
-    margin-bottom: auto;
 }
-.header h1,.p-onleft{
-    margin:-90px 0px 0px 50px;
+.saketa-logo{
+    align-items: center;
+    margin: auto 5px;
 }
 .p-onleft{
     font-size: 12px;
     height: 70px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: -550px;
+    margin-top: 10px;
+    margin-left: -10px;
 }
 .p-onright{
-    font-size: 17px;
-    margin-top: auto;
-    margin-bottom: auto;
     display: inline-flex;
+    font-size: 20px;
+    font-weight: 300;
+    height: 80px;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-left: 35px;
 }
 p.pone span{
     display:block;
     font-size: 27px;
     font-weight: 300;
+    color:#57C9FD ;
 }
-.ptwo{
-    display: inline-flex;
+.p-onright .p-two{
     margin-right: 5px;
+    font-size: 20px;
+}
+.p-two span{
+    color: #57C9FD;
 }
 .andrewImg{
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 75px;
+    float: right;
 }
-.main-section{
-    display: flex;
-    width: 100%;
-    margin-top: 10px;
+
+.hline hr {
+    width: 99%;
+    margin: 8px 5px;
 }
 .filters{
     padding: 10px 20px 10px 20px;
     width: 200px;
+    margin-left: 20px;
 }
 .filters ul{
     list-style-type: none;
@@ -101,17 +97,19 @@ p.pone span{
     color:#02aaf2 ;
     padding: 5px;
 }
-.main-section main{
-    width: fit-content;
-    width: 1060px;
-}
-.button-container {
-    display: flex;
-    width: 100%;
+.main-section{
+    width: 1100px;
+    margin-left: 50px;
+    margin-right: 0px;
+    
 }
 .iconimg{
     width: 25px;
     height: 25px;
+}
+.buttons-container{
+    width: auto;
+    margin-left: 0px;
 }
 .buttons-container .allbtn{
     position: inherit;
@@ -128,30 +126,41 @@ p.pone span{
     width: 37px;
     height: 36px;
     margin: 1.1px;
+    outline: none;
+}
+.search-manager{
+    margin: 20px -5px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.dropdown-container{
+    padding: 2px;
 }
 .search-container{
-    margin: 20px 0 0 0;
-    padding: 20px 20px 0px 20px;
-    height: auto;
+    display: inline;
+    padding: 2px;
 }
 .form-label{
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
-    margin-right: 8px;
+    font-family: sans-serif;
+    margin: auto 5px;
 }
 .search{
-    height: 35px;
-    width: 220px;
+    height: 40px;
+    width: 240px;
     outline: none;
+    font-size: 14px;
+    margin-left: 5px;
 }
 .clear-btn{
     width: 80px;
-    height: 38px;
+    height: 40px;
     background-color: #69BA00;
     color: white;
     border: none;
-    padding: 10px;
-    margin-left: 20px;
+    margin-left: 15px;
     cursor: pointer;
 }
 #filter-label{
@@ -170,13 +179,14 @@ p.pone span{
     background-color: aliceblue;
 }
 .addemp-btn{
-    display: inline;
-    width: 130px;
-    margin-left: 60px;
-    float: right;
+    display: inline-flex;
+    width: 200px;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: 130px;
 }
 #add-btn{
-    height: 34px;
+    height: 40px;
     width: 150px;
     border: none;
     background-color: #00B1FC;
@@ -185,19 +195,7 @@ p.pone span{
 }
 .note{
     font-size: 13px;
-}
-.note span{
-    font-weight: bold;
-    font-size: 15px;
-}
-.profileDisplay{
-    margin-top: -6px;
-    height: auto;
-}
-fieldset {
-    border-color: rgb(239, 239, 241);
-    width: 1028px;
-    height: 320px;
+    margin-left: 4px;
 }
 .profile img{
     width: 70px;
@@ -206,39 +204,31 @@ fieldset {
 .profile{
     background-color: #E9E8E8;
     display: inline-flex;
-    width: 217px;
+    width: 240px;
     padding: 6px 9px;
-    margin: 10px 8.9px;
-    height: 64px;
+    margin: 10px 8px;
+    height: 75px;
 }
 .emp-details{
     font-size: 12px;
-    padding: 0px 5px;
-    margin: 0px 5px;
-    height: 64 px;
-    contain: content;
+    margin-left: 10px;
 }
-.jobdept-labels{
+.jobdept-labels p{
     font-size: 10px;
-    line-height: 13px;
-    letter-spacing: 0.3px;
-    margin-bottom: 1px;
-}
-.emp-job{
-    display: block;
-}
-.emp-job, .emp-dept{
-    margin-top: 3px;
+    margin-bottom: 0px;
 }
 .emp-name{
     font-weight: bold;
     font-size: 12px;
-    margin: auto;
 }
 .profile-set{
-    display: inline;
     flex-wrap: wrap;
     overflow: scroll;
+    border: 1px solid rgb(189, 189, 189);
+    width: 1060px;
+    height: 340px;
+    padding-left: 16px;
+    padding-right: 0px;
 }
 .icons i{
     font-family: Arial,FontAwesome;
@@ -252,7 +242,7 @@ fieldset {
 }
 .addemp-popup{
     width:100%;
-    height: 100%;
+    height: 640px;
     background:rgba(0,0,0,0.5);
     top: 0;
     left: 0;
@@ -261,9 +251,12 @@ fieldset {
     justify-content: center;
     align-items: center;
 }
+.addemp-popup p{
+    margin:3px 0px;
+}
 .popup-form{
     width: 400px;
-    height: 600px;
+    height: auto;
     background: whitesmoke;
     position: relative;
     margin: auto;
@@ -273,21 +266,17 @@ fieldset {
     border-radius: 10px;
     border: 1px solid rgb(72, 70, 70);
 }
-.popup-form label{
-    padding: 10px;
-    margin: 10px 0px;
-}
 .closeicon{
-    width: 11px;
+    width: 20px;
     position: absolute;
     float: right;
-    right: -2px;
+    right: -3px;
     top: -5px;
     background: white;
     border: 1px solid gray;
     border-radius: 10px;
     cursor: pointer;
-    padding: 2px;
+    padding: 4px;
 }
 .popup-form span{
     color: red;
@@ -297,14 +286,14 @@ fieldset {
     width: 350px;
     border-radius: 5px;
     border: none;
-    margin: 10px;
+    margin: 5px;
 }
 .submitbtn{
     height: 35px;
     width: 170px;
     margin: auto;
     text-align: center;
-    margin-left: 120px;
+    margin-left: 100px;
     margin-top: 5px;
     border: none;
     background-color:#00B1FC;

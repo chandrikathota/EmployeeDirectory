@@ -10,111 +10,115 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="addressbook.js" defer></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 
 <body>
     <div class="body">
-        <div class="header">
-            <img class="saketa-name" src="assets/saketa-logo.svg">
-            <div class="p-onleft">
+        <div class="row" id="header">
+            <div class="col-md-2 col-sm-6 col-xs-12 saketa-logo">
+                <img class="saketa-name" src="assets/saketa-logo.svg">
+            </div>
+            
+            <div class="col-md-7 col-sm-6 col-xs-12 p-onleft">
                 <p class="pone"><span>Employee Directory</span>The Ultimate People Directory Experience</p>
             </div>
 
-            <div class="p-onright">
-                <p class="ptwo"><span>Welcome,</span>Andrew Philips</p>
-                <img class="andrewImg" src="assets/andrew.jpeg"/>
+            <div class="col-md-3">
+                <div class="p-onright">
+                        <p class="p-two"><span>Welcome,</span>Andrew Philips</p>
+                        <img class="andrewImg" src="assets/andrew.jpeg"/>
+                </div>
             </div>
-        </div>
-        <hr />
-        <div class="main-section">
-            <div class="filters">
-                <ul>
-                    <li>
-                        <div class="depart-filters" id="depart-filters">
-                            <p class="dept">Departments</p>
-
-                        </div>
-                        <div class="offc-filters" id="offc-filters">
-                            <p class="offc">Offices</p>
-
-                        </div>
-                        <p class="jobtle">Job Titles</p>
-                        <div class="jobtle-filters" id="jobtle-filters">
-                            
-                        </div>
-                    <li>
-                        <div class="viewmore">
-                            <button id="viewmore-btn" onclick="handleViewMoreButton()">view more</button>
-                        </div>
-                    </li>
-                </ul>
+            <div class="col-md-12 hline"><hr></div>
+            <div class="col-md-2">
+                <div class="filters">
+                    <ul>
+                        <li>
+                            <div class="depart-filters" id="depart-filters"><p class="dept">Departments</p></div>
+                            <div class="offc-filters" id="offc-filters"><p class="offc">Offices</p></div>
+                            <p class="jobtle">Job Titles</p>
+                            <div class="jobtle-filters" id="jobtle-filters"></div>
+                        <li>
+                            <div class="viewmore">
+                                <button id="viewmore-btn" onclick="handleViewMoreButton()">view more</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <main>
-                <div class="buttons-container">
-                    <div class="buttonContainer" id="buttonContainer">
-                        <div class="allbtn">
-                            <button><i class="fa fa-user all-btn" id="all-btn"
-                                    style="font-size: 15px; font-family: 'Arial',FontAwesome;"></i>
-                            </button>
+            <div class="col-md-10">
+               <div class="main-section">
+                    <div class="col-md-12">
+                        <div class="buttons-container">
+                            <div class="buttonContainer" id="buttonContainer">
+                                <div class="allbtn">
+                                    <button><i class="fa fa-user all-btn" id="all-btn"
+                                        style="font-size: 15px; font-family: 'Arial',FontAwesome;"></i>
+                                </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="search-container">
-                    <form>
-                        <label class="form-label">Search</label>
-                        <input class="search" id="search" type="text" placeholder="&#xf002 Enter any keyword"
-                            style="font-family:Arial, FontAwesome" />
-                        <input class="clear-btn" type="button" value="Clear" onclick="clearSearchBar()" />
-                        <label class="form-label" id="filter-label">Filter by</label>
-                        <select class="dropdown-holder" id="filterby-option">
-                            <option class="options">Preferred Name</option>
-                            <option class="options">Job Title</option>
-                            <option class="options">Office</option>
-                            <option class="options">Department</option>
-                            <option class="options">Skype ID</option>
-                        </select>
-                        <div class="addemp-btn">
-                            <button id="add-btn" type="button" onclick="openPopup()">Add Employee</button>
+                    <div class="col-md-12 search-manager">
+                        <div class="search-container col-xs-12">
+                            <label class="form-label">Search</label>
+                            <input class="search" id="search" type="text" placeholder="&#xf002 Enter any keyword"
+                                style="font-family:Arial, FontAwesome" />
+                            <input class="clear-btn" type="button" value="Clear" onclick="clearSearchBar()" />
                         </div>
-                    </form>
-                    <div class="note">
-                        <p><span>Note:</span>Please use the advanced filter options to refine your results.</p>
+                        <div class="dropdown-container col-xs-12">
+                            <label class="form-label" id="filter-label">Filter by</label>
+                            <select class="dropdown-holder" id="filterby-option">
+                                <option class="options">Preferred Name</option>
+                                <option class="options">Job Title</option>
+                                <option class="options">Office</option>
+                                <option class="options">Department</option>
+                                <option class="options">Skype ID</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="addemp-btn col-xs-12">
+                                <button id="add-btn" type="button" onclick="openPopup()">Add Employee</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note col-md-12">
+                        <p><strong>Note : </strong>Please use the advanced filter options to refine your results.</p>
                     </div>
 
-                </div>
+                    <div class="col-md-12 profileDisplay">
+                        <div class="profile-set" id="profile-set">
 
-                <div class="profileDisplay">
-                    <fieldset class="profile-set" id="profile-set">
-
-                    </fieldset>
-                </div>
-            </main>
+                        </div>
+                    </div>
+               </div>
+            </div>
         </div>
+         
     </div>
     <div class="addemp-popup" id="addemp-popup">
         <form class="popup-form" name="employeeform" id="employeeform">
             <i class="fa fa-close closeicon" onclick="closePopup()"></i>
-            <label id="fstnamelbl">Enter FirstName<span>*</span></label><br>
+            <p id="fstnamelbl">Enter FirstName<span>*</span></p>
             <input type="text" id="fstname" name="fstname" class="nameholder" /><br>
 
-            <label id="lastnamelbl">Enter LastName<span>*</span></label><br>
+            <p id="lastnamelbl">Enter LastName<span>*</span></p>
             <input type="text" id="lstname" name="lstname" class="nameholder" /><br>
 
-            <label id="emaillbl">Enter email<span>*</span></label><br>
+            <p id="emaillbl">Enter email<span>*</span></p>
             <input type="text" id="email" name="email" class="nameholder"/><br>
 
-            <label id="jobtitlelbl">Job Title<span>*</span></label><br>
+            <p id="jobtitlelbl">Job Title<span>*</span></p>
             <input type="text" id="jobtitle" name="jobtitle" class="nameholder"  /><br>
 
-            <label id="offclbl">Office<span>*</span></label><br>
+            <p id="offclbl">Office<span>*</span></p>
             <input type="text" id="location" name="location" class="nameholder"  /><br>
 
-            <label id="deptlbl">Department<span>*</span></label><br>
+            <p id="deptlbl">Department<span>*</span></p>
             <input type="text" id="deptname" name="deptname" class="nameholder"  /><br>
 
-            <label id="skypelbl">Skype ID<span>*</span></label><br>
+            <p id="skypelbl">Skype ID<span>*</span></p>
             <input type="text" id="skypeid" name="skypeid" class="nameholder"  /><br>
 
             <p class="errormsg" id="errormsg"></p>

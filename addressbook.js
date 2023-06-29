@@ -1,16 +1,20 @@
 var buttonContainer = document.getElementById('buttonContainer');
 for (var i = 65; i <= 90; i++) {
     var letter = String.fromCharCode(i);
-    var button = document.createElement('button');
+    let button = document.createElement('button');
     button.type = "button"
     button.innerText = letter;
     button.id = letter;
     button.classList.add('letter-button');
-    (function(button) {
-        button.onclick = function() {
+    button.onclick = function() {
         alphaButtonClicked(button.id);
-        };
-    })(button);
+    };
+    // (function closure(button) {  "closure"
+    //     button.onclick = function() {
+    //     alphaButtonClicked(button.id);
+    //     };
+    // })
+    //closure(button);  //with button as var button
     buttonContainer.appendChild(button);
 }
 function openPopup(){
@@ -22,6 +26,7 @@ function closePopup(){
 }
 function clearSearchBar(){
     document.getElementById("search").value="";
+    displayEmployeeDetails(employees)
 }
 
 
@@ -283,9 +288,7 @@ function displayLessJobFilters(){
     }
 }
 displayLessJobFilters()
-isJobFiltersExpanded=false
 function handleViewMoreButton(){
-    isJobFiltersExpanded=true
     let viewMoreBtn=document.getElementById("viewmore-btn")
     if(viewMoreBtn.innerHTML==="view more"){
         viewMoreBtn.innerText="view less"
@@ -387,10 +390,12 @@ document.getElementById("all-btn").addEventListener("click",function(){
 //alpha buttons
 
 function alphaButtonClicked(buttonid){
-    let clickedAlphaButton=document.getElementById(buttonid).innerHTML;
+    let clickedAlphaButton=document.getElementById(buttonid)
+    clickedAlphaButton.style.border.color="white"
+    let clickedAlphabet=clickedAlphaButton.innerHTML;
     let profiles=[]
     for(let i=0;i<employees.length;i++){
-        if(employees[i].preferedName[0]==clickedAlphaButton){
+        if(employees[i].preferedName[0]==clickedAlphabet){
             profiles.push(employees[i])
         }
     }
@@ -421,8 +426,8 @@ function displayEmployeeDetails(profiles){
             jobdept_labels.className="jobdept-labels";
         
             let emp_name=document.createElement("b");
-            let emp_job=document.createElement("label");
-            let emp_dept=document.createElement("label");
+            let emp_job=document.createElement("p");
+            let emp_dept=document.createElement("p");
             emp_name.className="emp-name";
             emp_job.className="emp-job";
             emp_dept.className="emp-dept";
