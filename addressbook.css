@@ -21,7 +21,7 @@ button:focus-visible{
     margin: auto 5px;
 }
 .p-onleft{
-    font-size: 16px;
+    font-size: 13px;
     height: 70px;
     margin-top: 10px;
     margin-left: -10px;
@@ -38,7 +38,7 @@ button:focus-visible{
 p.pone span{
     display:block;
     font-size: 27px;
-    font-weight: 300;
+    font-weight: 100;
     color:#57C9FD ;
 }
 .p-onright .p-two{
@@ -99,6 +99,7 @@ p.pone span{
 }
 .main-section{
     width: 1100px;
+    flex-wrap:wrap ;
     margin-left: 50px;
     margin-right: 0px;
     
@@ -109,7 +110,7 @@ p.pone span{
 }
 .buttons-container{
     width: auto;
-    margin-left: 0px;
+    margin-left: 2px;
 }
 .buttons-container .allbtn{
     position: inherit;
@@ -183,7 +184,7 @@ p.pone span{
     width: 200px;
     flex-direction: row;
     justify-content: flex-end;
-    margin-left: 130px;
+    margin-left: 133px;
 }
 #add-btn{
     height: 40px;
@@ -196,6 +197,14 @@ p.pone span{
 .note{
     font-size: 13px;
     margin-left: 4px;
+}
+.noMatchText{
+    color: #b7b7b7;
+    font-size: 12px;
+    align-items: center;
+    display: none;
+    justify-content: space-around;
+    margin-top: 15px;
 }
 .profile img{
     width: 70px;

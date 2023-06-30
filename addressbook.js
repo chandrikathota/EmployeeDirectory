@@ -410,8 +410,9 @@ window.addEventListener("load",function(){
 
 //to display required profiles
 function displayEmployeeDetails(profiles){
-
+   if(profiles.length!=0){
     document.getElementById("profile-set").innerHTML = '';
+
         profiles.forEach(prof=>{
             let profile=document.createElement("div");
             profile.className="profile";
@@ -448,6 +449,9 @@ function displayEmployeeDetails(profiles){
             star_icon.className="fa fa-star";
             let heart_icon=document.createElement("i")
             heart_icon.className="fa fa-heart";
+            heart_icon.onclick=function(){
+                heart_icon.style.color="red"
+            }
             
             profile.appendChild(profile_img) 
             profile.appendChild(emp_details)   
@@ -464,7 +468,17 @@ function displayEmployeeDetails(profiles){
 
             document.getElementById("profile-set").appendChild(profile)
         })
-              
+    }
+    else{
+        document.getElementById("profile-set").innerHTML = '';
+        let noMatchText = document.createElement("p")
+        noMatchText.className="noMatchText"
+
+        document.getElementById("profile-set").appendChild(noMatchText);
+        
+        noMatchText.innerHTML="No Matches Found";
+        noMatchText.style.display="flex"
+    }        
             
 }
 
