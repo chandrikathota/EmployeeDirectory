@@ -207,7 +207,7 @@ p.pone span{
 .profile{
     background-color: #E9E8E8;
     display: inline-flex;
-    width: 240px;
+    width: 251px;
     padding: 6px 9px;
     margin: 10px 8px;
     height: 75px;
@@ -228,7 +228,6 @@ p.pone span{
     flex-wrap: wrap;
     overflow: scroll;
     border: 1px solid rgb(189, 189, 189);
-    width: 1060px;
     height: 340px;
     padding-left: 16px;
     padding-right: 0px;
