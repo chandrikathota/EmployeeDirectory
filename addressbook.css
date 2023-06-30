@@ -98,11 +98,11 @@ p.pone span{
     padding: 5px;
 }
 .main-section{
-    width: 1100px;
-    flex-wrap:wrap ;
-    margin-left: 50px;
-    margin-right: 0px;
-    
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 .iconimg{
     width: 25px;
@@ -124,16 +124,16 @@ p.pone span{
     border: none;
     cursor: pointer;
     color: white;
-    width: 37px;
+    width: 38.4px;
     height: 36px;
-    margin: 1.1px;
+    margin: 1.2px;
     outline: none;
 }
 .search-manager{
-    margin: 20px -5px;
+    margin: 20px 0px;
     display: inline-flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 .dropdown-container{
     padding: 2px;
@@ -146,14 +146,13 @@ p.pone span{
     font-size: 15px;
     font-weight: bold;
     font-family: sans-serif;
-    margin: auto 5px;
+    margin: auto 0px;
 }
 .search{
     height: 40px;
     width: 240px;
     outline: none;
     font-size: 14px;
-    margin-left: 5px;
 }
 .clear-btn{
     width: 80px;
@@ -161,16 +160,12 @@ p.pone span{
     background-color: #69BA00;
     color: white;
     border: none;
-    margin-left: 15px;
     cursor: pointer;
-}
-#filter-label{
-    margin-left: 40px;
+    margin-left: 13px;
 }
 .dropdown-holder{
     height: 40px;
     width: 200px;
-    margin-left: 7px;
     font-size: 16px;
     padding: 5px;
     cursor: pointer;
@@ -184,7 +179,7 @@ p.pone span{
     width: 200px;
     flex-direction: row;
     justify-content: flex-end;
-    margin-left: 133px;
+    padding: 2.5px;
 }
 #add-btn{
     height: 40px;
@@ -196,7 +191,6 @@ p.pone span{
 }
 .note{
     font-size: 13px;
-    margin-left: 4px;
 }
 .noMatchText{
     color: #b7b7b7;
