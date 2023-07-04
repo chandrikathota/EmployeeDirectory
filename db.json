@@ -1,0 +1,114 @@
+{
+"employees": [
+    {
+        "id":1,
+        "firstName":"John",
+        "lastName":"Andrews",
+        "preferedName":"John Andrews",
+        "email":"john.a@gmail.com",
+        "location":"Boston",
+        "job":"Recruiting Expert",
+        "department":"Human Resources",
+        "skypeid":"345671"
+    },
+    {
+        "id":2,
+        "firstName":"Lea",
+        "lastName":"Dilallo",
+        "preferedName":"Lea Dilallo",
+        "email":"lea.d@gmail.com",
+        "location":"Seattle",
+        "job":".Net developer",
+        "department":"IT department",
+        "skypeid":"236849"
+    },
+    {
+        "id":3,
+        "firstName":"Shaun",
+        "lastName":"Murphy",
+        "preferedName":"Shaun Murphy",
+        "email":"shaun@gmail.com",
+        "location":"Seattle",
+        "job":"Product Manager",
+        "department":"IT department",
+        "skypeid":"346721"
+    },
+    {
+        "id":4,
+        "firstName":"Audrea",
+        "lastName":"Lim",
+        "preferedName":"Audrea Lim",
+        "email":"audrealim@gmail.com",
+        "location":"Seattle",
+        "job":"System Analyst",
+        "department":"IT department",
+        "skypeid":"563728"
+    },
+    {
+        "id":5,
+        "firstName":"Neil",
+        "lastName":"Melendez",
+        "preferedName":"Neil Melendez",
+        "email":"melendez@gmail.com",
+        "location":"Portland",
+        "job":"Data Analyst",
+        "department":"IT department",
+        "skypeid":"890123"
+    },
+    {
+        "id":6,
+        "firstName":"Aaron",
+        "lastName":"Glassman",
+        "preferedName":"Aaron Glassman",
+        "email":"dr.glassman@gmail.com",
+        "location":"Boston",
+        "job":"Chief Marketing Officer",
+        "department":"Marketing department",
+        "skypeid":"781234"
+    },
+    {
+        "id":7,
+        "firstName":"Radhika",
+        "lastName":"Murthy",
+        "preferedName":"Radhika Murthy",
+        "email":"mradhika@gmail.com",
+        "location":"Chicago",
+        "job":"Product Manager",
+        "department":"IT department",
+        "skypeid":"127801"
+    },
+    {
+        "id":8,
+        "firstName":"James",
+        "lastName":"Robert",
+        "preferedName":"James Robert",
+        "email":"jrobert@gmail.com",
+        "location":"Chicago",
+        "job":"Product Manager",
+        "department":"IT department",
+        "skypeid":"818132"
+    },
+    {
+        "id":9,
+        "firstName":"Michael",
+        "lastName":"Anderson",
+        "preferedName":"Michael Anderson",
+        "email":"amichael@gmail.com",
+        "location":"Portland",
+        "job":"Junior Software Engineer",
+        "department":"IT department",
+        "skypeid":"567183"
+    },
+    {
+        "id":10,
+        "firstName":"David",
+        "lastName":"Miller",
+        "preferedName":"David Miller",
+        "email":"dmiller@gmail.com",
+        "location":"Boston",
+        "job":"Marketing Analyst",
+        "department":"Marketing department",
+        "skypeid":"128904"
+    }
+]
+}

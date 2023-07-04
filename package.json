@@ -1,0 +1,24 @@
+{
+  "name": "address-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "addressbook.js",
+  "scripts": {
+    "serve-json": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandrikathota/EmployeeDirectory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chandrikathota/EmployeeDirectory/issues"
+  },
+  "homepage": "https://github.com/chandrikathota/EmployeeDirectory#readme",
+  "dependencies": {
+    "json-server": "^0.17.3",
+    "yarn": "^1.22.19"
+  }
+}

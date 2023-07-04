@@ -41,13 +41,14 @@
                             <div class="jobtle-filters" id="jobtle-filters"></div>
                         <li>
                             <div class="viewmore">
-                                <button id="viewmore-btn" onclick="handleViewMoreButton()">view more</button>
+                                <button id="viewmore-btn">view more</button>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-10 main-section">
+                <div class="mainSection">
                     <div class="col-md-12 alphaButtons">
                         <div class="buttons-container">
                             <div class="buttonContainer" id="buttonContainer">
@@ -64,7 +65,7 @@
                             <label class="form-label">Search</label>
                             <input class="search" id="search" type="text" placeholder="&#xf002 Enter any keyword"
                                 style="font-family:Arial, FontAwesome" />
-                            <input class="clear-btn" type="button" value="Clear" onclick="clearSearchBar()" />
+                            <input id="clear-btn" class="clear-btn" type="button" value="Clear"  />
                         </div>
                         <div class="dropdown-container col-xs-12">
                             <label class="form-label" id="filter-label">Filter by</label>
@@ -78,7 +79,7 @@
                         </div>
                         <div>
                             <div class="addemp-btn col-xs-12">
-                                <button id="add-btn" type="button" onclick="openPopup()">Add Employee</button>
+                                <button id="add-btn" type="button">Add Employee</button>
                             </div>
                         </div>
                     </div>
@@ -90,14 +91,14 @@
                         <div class="profile-set" id="profile-set">                                                                                                                                 
                         </div>
                     </div>
-               
+                </div>
             </div>
         </div>
          
     </div>
     <div class="addemp-popup" id="addemp-popup">
         <form class="popup-form" name="employeeform" id="employeeform">
-            <i class="fa fa-close closeicon" onclick="closePopup()"></i>
+            <i id="closeIcon" class="fa fa-close closeicon"></i>
             <p id="fstnamelbl">Enter FirstName<span>*</span></p>
             <input type="text" id="fstname" name="fstname" class="nameholder" /><br>
 
@@ -120,7 +121,7 @@
             <input type="text" id="skypeid" name="skypeid" class="nameholder"  /><br>
 
             <p class="errormsg" id="errormsg"></p>
-            <button id="submit-btn" class="submitbtn" type="button" onclick="addNewEmployeeDetails()">Submit</button>
+            <button id="submit-btn" class="submitbtn" type="button">Submit</button>
             
         </form>
     </div>
