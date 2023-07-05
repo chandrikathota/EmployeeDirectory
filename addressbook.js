@@ -1,5 +1,5 @@
-
-fetch("http://localhost:3000/employees")
+data_url="http://localhost:3000/employees"
+fetch(data_url)
 .then(res=>res.json())
 .then(data=>{
     employees=data
@@ -410,7 +410,14 @@ fetch("http://localhost:3000/employees")
         }
         var errormsg=document.getElementById("errormsg")
         if(newEmployeeFirstName!="" || newEmployeeLastName!="" || newEmployeeEmail!="" || newEmployeeJobTitle!="" || newEmployeeLocation!="" || newEmployeeDepartment!="" || newEmployeeSkypeId!="" ){
-            employees.push(newEmployeeDetails);
+            fetch(data_url, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newEmployeeDetails)
+              })
+            // employees.push(newEmployeeDetails);
             closePopup();
             document.getElementById("employeeform").reset();
             errormsg.innerHTML=""
